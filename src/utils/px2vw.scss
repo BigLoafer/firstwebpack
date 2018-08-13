@@ -1,0 +1,5 @@
+$vw_base:750;
+
+@function vw($px) {
+  @return ($px / 750) * 100vw;
+}

@@ -1,0 +1,54 @@
+@import "./utils/px2vw.scss";
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.App-title {
+  font-size: 1.5em;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+.imgCon{
+  border-width: 1px;
+  border-color: #f7f7f7;
+  
+}
+.img{
+  width: 150;
+  height: 150;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+
+.img:hover{
+  transform: scale(1.1);
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
