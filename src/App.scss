@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  position: relative;
 }
 
 .App-logo {
@@ -48,7 +49,34 @@
   transform: scale(1.1);
 }
 
+.ani{
+  background: #fff;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-animation: rotate___2ybKT 20s linear infinite;
+  animation: rotate___2ybKT 20s linear infinite;
+  position: absolute;
+  left: 50%;
+  margin-left: -5000px;
+  bottom: 530px;
+  border-radius: 49%;
+  width: 10000px;
+  height: 10000px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes cRotate {
+  0%{
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  0%{
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
 }

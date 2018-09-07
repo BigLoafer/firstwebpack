@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.scss';
- import { Collapse,Input, Tabs, Icon} from 'antd';
+import { Collapse,Input, Tabs, Icon} from 'antd';
+import {observable } from 'mobx';
+import {observer} from 'mobx-react';
 const Panel = Collapse.Panel;
 const TabPane  = Tabs.TabPane;
 
+@observer
 class App extends Component {
-  
+  @observable inputValue = '';
   callback=()=>{
 
   };
+
+  inputChange=(e)=>{
+    this.inputValue =e.target.value.replace(/\D/g, '');
+  }
+
   render() {
-    
     const customPanelStyle = {
       background: '#f7f7f7',
       borderRadius: 8,
@@ -28,8 +35,10 @@ class App extends Component {
         <div style={{display:'flex',marginTop:'50px',flexDirection:'column',alignItems:'center'}}>
         <div style={{width:'900px',backgroundColor:'white'}}>
             <Input 
-              placeholder={'请输入同户名'}
+              placeholder={'只能输数字'}
               addonBefore={<img src={logo} style={{width:30,height:30}}/>}
+              value={this.inputValue}
+              onChange={this.inputChange}
             />
             <Input 
               placeholder={'请输入密码'}
