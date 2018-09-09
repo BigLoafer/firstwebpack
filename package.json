@@ -67,7 +67,9 @@
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.6",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
   },
   "jest": {
     "collectCoverageFrom": [

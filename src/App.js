@@ -4,18 +4,27 @@ import './App.scss';
 import { Collapse,Input, Tabs, Icon} from 'antd';
 import {observable } from 'mobx';
 import {observer} from 'mobx-react';
+import FirstStore from './store/FirstStore';
+import Child1 from './first/Child1';
 const Panel = Collapse.Panel;
 const TabPane  = Tabs.TabPane;
 
 @observer
 class App extends Component {
   @observable inputValue = '';
-  callback=()=>{
+  constructor(props){
+    super(props);
+   // this.store =new FirstStore();
+    this.store = FirstStore;
+  }
 
-  };
 
   inputChange=(e)=>{
     this.inputValue =e.target.value.replace(/\D/g, '');
+  }
+
+  test=()=>{
+    this.store.data = '9999';
   }
 
   render() {
@@ -46,6 +55,9 @@ class App extends Component {
               style={{paddingLeft:10,width:450}}
             />
         </div>
+        <button onClick={this.test}>点击</button>
+        <div style={{color: 'red'}}>{this.store.data}</div>
+        <Child1/>
 
        {/*  <Collapse style={{width:'900px'}}>
 
