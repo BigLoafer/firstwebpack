@@ -54,9 +54,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start-test": "cross-env DEMO_ENV=test node scripts/start.js",
-    "start-uat": "cross-env DEMO_ENV=uat node scripts/start.js",
-    "start-pro": " cross-env DEMO_ENV=production node scripts/start.js",
+    "start-test": "set PORT=3001 && cross-env DEMO_ENV=test node scripts/start.js",
+    "start-uat": "set PORT=3001 && cross-env DEMO_ENV=uat node scripts/start.js",
+    "start-pro": "set PORT=3001 && cross-env DEMO_ENV=production node scripts/start.js",
     "build-test": "cross-env DEMO_ENV=test node scripts/build.js",
     "build-uat": "cross-env DEMO_ENV=uat node scripts/build.js",
     "build-pro": "cross-env DEMO_ENV=production node scripts/build.js",

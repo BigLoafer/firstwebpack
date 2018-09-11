@@ -6,6 +6,7 @@ import {observable } from 'mobx';
 import {observer} from 'mobx-react';
 import FirstStore from './store/FirstStore';
 import Child1 from './first/Child1';
+import {Prompt} from 'react-router-dom';
 const Panel = Collapse.Panel;
 const TabPane  = Tabs.TabPane;
 
@@ -25,6 +26,10 @@ class App extends Component {
 
   test=()=>{
     this.store.data = '9999';
+  }
+
+  goToDetail=()=>{
+    this.props.history.push({pathname:'./detail',state:{id: '98'}});
   }
 
   render() {
@@ -56,9 +61,10 @@ class App extends Component {
             />
         </div>
         <button onClick={this.test}>点击</button>
+        <button onClick={this.goToDetail}>跳转</button>
         <div style={{color: 'red'}}>{this.store.data}</div>
         <Child1/>
-
+        <Prompt when={true} message="您确定要离开当前页面吗？"/>
        {/*  <Collapse style={{width:'900px'}}>
 
             <Panel header="app 开发的几种方式" key="0" style={customPanelStyle} border={false}> 

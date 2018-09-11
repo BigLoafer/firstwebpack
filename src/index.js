@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import PrivateRoute from '../src/pages/component/privateRoute';
 import App from './App';
 import Login from '../src/pages/login/login';
-import { BrowserRouter as Router, Route,Switch, Redirect  } from 'react-router-dom';
+import Detail from '../src/pages/login/detail';
+import { HashRouter  as Router, Route,Switch, Redirect  } from 'react-router-dom';
 
 const Pages=()=>{
     return(
@@ -11,9 +12,10 @@ const Pages=()=>{
             <Switch>
                 <PrivateRoute exact path='/' component={App}/>
                 <Route exact path='/login' component={Login}/>
-                {/* <Redirect to={{
+                <Route exact path='/detail' component={Detail}/>
+                <Redirect to={{
                     pathname:'/login'
-                }}/> */}
+                }}/> 
             </Switch>
         </Router>
     );
