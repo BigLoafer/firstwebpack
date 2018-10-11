@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+.tabItemCon{
+    border-bottom: 0px solid #000;
+    margin-left: 16px;
+    position: relative;
+    padding-bottom: 8px;
+}
+.tabItemCon2{
+    border-bottom: 2px solid #000;
+    margin-left: 16px;
+    position: relative;
+    padding-bottom: 8px;
+}
+.tabItemCon::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #000;
+    cursor: pointer;
+    transition: 0.2s all linear;
+}
+.tabItemCon:hover::before{
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.25);
+}
+.tabItemCon:hover ~ .tabItemCon::before{
+    left: 0;
+}

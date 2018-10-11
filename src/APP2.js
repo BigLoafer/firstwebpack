@@ -2,26 +2,39 @@ import React, { Component } from 'react';
 import {observable } from 'mobx';
 import {observer} from 'mobx-react';
 import Child from './Child';
+import './app2.scss';
 
-// @observer
+@observer
 export default class APP2 extends Component{
 
-// @observable name = " haha";
+  @observable dataArr =
+  [{name:'不可思议的CSSHHH',showLine:false} , {name: '导航栏',showLine:false} , {name:'光标小划线跟随',showLine:false}, {name:'PURE CSS',showLine:false} , {name:'NAV underline',showLine:false}]
+
 constructor(props){
   super(props);
-  this.state={name: 'hahah'};
+  this.state={
+      data:[{name:'不可思议的CSS',showLine:false} , {name: '导航栏',showLine:false} , {name:'光标小划线跟随',showLine:false}, {name:'PURE CSS',showLine:false} , {name:'NAV underline',showLine:false}]
+  };
 }
 
 
-test=()=>{
-    // this.name =' React';
-   this.setState({ name: 'React'})
+test=(Index)=>{
+  for (let index = 0; index < this.dataArr.length; index++) {
+    if(index === Index){
+       this.dataArr.splice(index,1,{...this.dataArr[index],...{showLine:true}})
+    }else {
+        this.dataArr.splice(index,1,{...this.dataArr[index],...{showLine:false}})
+    }
+  }
 }
+
 render() {
   return (
-    <div>
-      <span onClick={this.test} title={'zzzzz'}>{this.state.name}</span>
-      <Child/>
+    <div className="container">
+      {this.dataArr.map( (item, index)=> 
+        <span key={index} className= {item.showLine ? "tabItemCon2" : "tabItemCon"} onClick={()=>this.test(index)}>{item.name}</span>
+      )
+      }
     </div>
   )
 };
