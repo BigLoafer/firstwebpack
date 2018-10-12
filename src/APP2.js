@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {observable } from 'mobx';
 import {observer} from 'mobx-react';
-import Child from './Child';
+import Child from '@/Child';
+import px2vw from 'utils/px2vw.scss';
 import './app2.scss';
 
 @observer
@@ -35,6 +36,7 @@ render() {
         <span key={index} className= {item.showLine ? "tabItemCon2" : "tabItemCon"} onClick={()=>this.test(index)}>{item.name}</span>
       )
       }
+      <Child/>
     </div>
   )
 };
