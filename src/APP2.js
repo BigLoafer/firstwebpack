@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {observable } from 'mobx';
-import {observer} from 'mobx-react';
+import {observer,inject} from 'mobx-react';
 import Child from '@/Child';
 import px2vw from 'utils/px2vw.scss';
 import './app2.scss';
 
+@inject("homeStore")
 @observer
 export default class APP2 extends Component{
 
@@ -13,6 +14,7 @@ export default class APP2 extends Component{
 
 constructor(props){
   super(props);
+  console.log(this.props.homeStore);
   this.state={
       data:[{name:'不可思议的CSS',showLine:false} , {name: '导航栏',showLine:false} , {name:'光标小划线跟随',showLine:false}, {name:'PURE CSS',showLine:false} , {name:'NAV underline',showLine:false}]
   };
@@ -37,6 +39,7 @@ render() {
       )
       }
       <Child/>
+      <span>{this.props.homeStore.name}</span>
     </div>
   )
 };

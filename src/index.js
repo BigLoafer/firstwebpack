@@ -7,19 +7,23 @@ import App from './APP2';
 import Login from '../src/pages/login/login';
 import Detail from '../src/pages/login/detail';
 import { HashRouter  as Router, Route,Switch, Redirect  } from 'react-router-dom';
+import {Provider} from 'mobx-react';
+import * as stores from './store/index';
 
 const Pages=()=>{
     return(
-        <Router >
-            <Switch>
-                <PrivateRoute exact path='/' component={App}/>
-                <Route exact path='/login' component={Login}/>
-                <Route exact path='/detail' component={Detail}/>
-                <Redirect to={{
-                    pathname:'/login'
-                }}/> 
-            </Switch>
-        </Router>
+        <Provider {...stores}>
+            <Router >
+                <Switch>
+                    <PrivateRoute exact path='/' component={App}/>
+                    <Route exact path='/login' component={Login}/>
+                    <Route exact path='/detail' component={Detail}/>
+                    <Redirect to={{
+                        pathname:'/login'
+                    }}/> 
+                </Switch>
+            </Router>
+        </Provider>    
     );
 }
 
