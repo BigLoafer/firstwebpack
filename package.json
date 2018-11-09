@@ -54,9 +54,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start-test": "set PORT=3001 && cross-env DEMO_ENV=test node scripts/start.js",
-    "start-uat": "set PORT=3001 && cross-env DEMO_ENV=uat node scripts/start.js",
-    "start-pro": "set PORT=3001 && cross-env DEMO_ENV=production node scripts/start.js",
+    "start-test": "set PORT=3002 && cross-env DEMO_ENV=test node scripts/start.js",
+    "start-uat": "set PORT=3002 && cross-env DEMO_ENV=uat node scripts/start.js",
+    "start-pro": "set PORT=3002 && cross-env DEMO_ENV=production node scripts/start.js",
     "build-test": "cross-env DEMO_ENV=test node scripts/build.js",
     "build-uat": "cross-env DEMO_ENV=uat node scripts/build.js",
     "build-pro": "cross-env DEMO_ENV=production node scripts/build.js",
@@ -75,6 +75,8 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
+    "socket.io-client": "^2.1.1",
+    "socket.io-react": "^1.2.0",
     "viser-react": "^2.3.3"
   },
   "jest": {

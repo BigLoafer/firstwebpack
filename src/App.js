@@ -7,6 +7,7 @@ import {observer} from 'mobx-react';
 import FirstStore from './store/FirstStore';
 import Child1 from './first/Child1';
 import {Prompt} from 'react-router-dom';
+import eventBus from './pages/component/eventBus';
 const Panel = Collapse.Panel;
 const TabPane  = Tabs.TabPane;
 
@@ -17,8 +18,23 @@ class App extends Component {
     super(props);
    // this.store =new FirstStore();
     this.store = FirstStore;
+    this.state={
+      haha:'1'
+    }
   }
 
+  componentDidMount(){
+    eventBus.addListener('test',(str)=>{
+      this.haha = str;
+    })
+    this.setState({
+      haha:this.haha
+    })
+  }
+
+  componentWillUnmount(){
+    console.log('zzzzzz');
+  }
 
   inputChange=(e)=>{
     this.inputValue =e.target.value.replace(/\D/g, '');
@@ -64,6 +80,8 @@ class App extends Component {
         <button onClick={this.goToDetail}>跳转</button>
         <div style={{color: 'red'}}>{this.store.data}</div>
         <Child1/>
+        <div>{this.state.haha}</div>
+        <div>{global.name}</div>
         <Prompt when={true} message="您确定要离开当前页面吗？"/>
        {/*  <Collapse style={{width:'900px'}}>
 

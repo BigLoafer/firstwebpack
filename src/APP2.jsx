@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {observable } from 'mobx';
 import {observer,inject} from 'mobx-react';
+import {socketConnect} from 'socket.io-react';
 import Child from '@/Child';
 import px2vw from 'utils/px2vw.scss';
 import './app2.scss';
@@ -18,6 +19,10 @@ constructor(props){
   this.state={
       data:[{name:'不可思议的CSS',showLine:false} , {name: '导航栏',showLine:false} , {name:'光标小划线跟随',showLine:false}, {name:'PURE CSS',showLine:false} , {name:'NAV underline',showLine:false}]
   };
+}
+
+componentDidMount(){
+  // this.props.socket.on('message',(msg)=>console.log(msg))
 }
 
 
