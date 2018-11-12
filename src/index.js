@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PrivateRoute from '../src/pages/component/privateRoute';
-import App from './App';
+// import App from './App';
 // import App from './app3';
-// import App from './APP2';
+import App from './APP2';
 import Login from '../src/pages/login/login';
 import Detail from '../src/pages/login/detail';
 import { BrowserRouter  as Router, Route,Switch, Redirect  } from 'react-router-dom';
