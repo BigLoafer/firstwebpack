@@ -4,19 +4,22 @@ import {observer,inject} from 'mobx-react';
 import {socketConnect} from 'socket.io-react';
 import Child from '@/Child';
 import px2vw from 'utils/px2vw.scss';
-import './app2.scss';
-import {Upload,Button} from 'antd'
+import styles from './app2.scss';
+import {Upload,Button,Input} from 'antd'
+import {testable,timeout} from './utils/decorator';
+import MyStore from './store/my/myStore';
+import _ from 'lodash';
+import {Debounce} from 'lodash-decorators'
 
+@testable
 @inject("homeStore")
 @observer
 export default class APP2 extends Component{
-
     @observable dataArr =
     [{name:'不可思议的CSSHHH',showLine:false} , {name: '导航栏',showLine:false} , {name:'光标小划线跟随',showLine:false}, {name:'PURE CSS',showLine:false} , {name:'NAV underline',showLine:false}]
 
     constructor(props){
       super(props);
-      console.log(this.props.homeStore);
       this.state={
           data:[{name:'不可思议的CSS',showLine:false} , {name: '导航栏',showLine:false} , {name:'光标小划线跟随',showLine:false}, {name:'PURE CSS',showLine:false} , {name:'NAV underline',showLine:false}]
       };
@@ -24,7 +27,6 @@ export default class APP2 extends Component{
 
     componentDidMount(){
       // this.props.socket.on('message',(msg)=>console.log(msg))
-      
     }
 
 
@@ -62,6 +64,17 @@ export default class APP2 extends Component{
       return false;
     }
 
+    @timeout(3000)
+    clickItem(){
+      console.log('zzz')
+    }
+  
+    @Debounce(1000)
+    inputChange(){
+      // this.sayGood();
+      console.log('hahahahahahaha');
+    }
+
     render() {
       
       return (
@@ -80,6 +93,26 @@ export default class APP2 extends Component{
                 <div className="pic" id = 'pic111'>
 
                 </div>
+                <div className="test">
+                  <div className={styles.itemCon} onClick={this.clickItem.bind(this)}>
+                      <img src={require('./d.jpg')} alt="" className={styles.img}/>
+                      <div className={styles.content}>
+                          <span className={styles.name}>{'哈哈哈哈'}</span>
+                          <span className={styles.workNum}>单号:{'12354664'}</span>
+                          <span className={styles.workNum}>SN:{'623646436'}</span>
+                          <span className={styles.workNum}>渠道:{'美团'}</span>
+                      </div>
+                      <div className={styles.desc}>
+                          <span className={styles.descStatus}>{'待验收'}</span>
+                          <span className={styles.workNum}>{'admin'}</span>
+                      </div>
+                  </div>
+                </div>
+                <Input
+                  placeholder="请输入"
+                  onChange={this.inputChange.bind(this)}
+                  style={{height:40,marginTop:10}}
+                />
         </div>
               )
     };

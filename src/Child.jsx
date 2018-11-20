@@ -7,10 +7,8 @@ export default class Child extends React.Component{
 
     constructor(props){
         super(props);
-        console.log(this.props.myStore.name)
     }
     render() {
-        console.log('wo zou le ma ');
       return (
         <div>
             hello  world;
