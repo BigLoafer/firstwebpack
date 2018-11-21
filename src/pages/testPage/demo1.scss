@@ -1,0 +1,14 @@
+html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
