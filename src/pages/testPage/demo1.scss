@@ -1,9 +1,10 @@
-html{
+html {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: row;
     width: 900px;
@@ -11,4 +12,5 @@ html{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    flex-direction: column;
 }
